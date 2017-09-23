@@ -1,0 +1,53 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-image: url(./calculate.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.panel-body{
+    background-color: lightslategrey;
+}
+
+#calculatorPanel {
+    height: 300px;
+    margin: 20px 20px 0px 20px;
+}
+
+form.calculator {
+    width:300px;
+    margin:0 auto;
+    margin-top: 8%;
+}
+#result{
+    height: 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*div.row{*/
+/*height: 40px;*/
+/*margin-top: 3%;*/
+/*margin-left: 1px;*/
+/*width: 225px;*/
+/*}*/
+
+div.fields {
+    margin-top: 15px;
+}
+
+.btn-success, .btn-warning{
+    width: 115px;
+}
+
+button {
+    width: 50px;
+    margin-left: 10px ;
+    margin-top: 6px;
+}
