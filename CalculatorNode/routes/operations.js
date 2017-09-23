@@ -48,12 +48,21 @@ exports.addition = function(req,res) {
 };
 
 exports.substract = function(req,res) {
+    let jsonResponse = {};
+    try {
 
-    var substract = (Number)(req.body.data.param1) - (Number)(req.body.data.param2);
-    var jsonResponse = {
-        "statusCode": 200,
-        "data": substract
-    };
+        var substract = (Number)(req.body.data.param1) - (Number)(req.body.data.param2);
+         jsonResponse = {
+            "statusCode": 200,
+            "data": substract
+        };
+    } catch(err){
+
+         jsonResponse = {
+            "statusCode": 400,
+            "data": "Error"
+        };
+    }
     res.send(jsonResponse);
 };
 
