@@ -14,7 +14,6 @@ function checkErrors(err, result, res) {
     }
 }
 
-//render ejs
 exports.calculatorPage = function (req, res) {
     res.render('calculator.ejs', function (err, result) {
         checkErrors(err, result, res);
@@ -35,44 +34,56 @@ exports.calculatorPage = function (req, res) {
 // });
 
 exports.addition = function(req,res) {
-    // console.log("req", req.body)
-    var sum = (Number)(req.body.data.param1) + (Number)(req.body.data.param2);
-    // console.log("Sum", sum);
-    var jsonResponse = {
-        "statusCode": 200,
-        "data": sum
-    };
-    // console.log("JSON", jsonResponse);
+    let jsonResponse = {};
+    try {
+        let sum = (Number)(req.body.data.param1) + (Number)(req.body.data.param2);
+         jsonResponse = {
+            "statusCode": 200,
+            "result": sum
+        };
+    }  catch(err){
+
+        jsonResponse = {
+            "statusCode": 400,
+            "result": "Error"
+        };
+    }
     res.send(jsonResponse);
-    // console.log("JSON 2", jsonResponse);
 };
 
 exports.substract = function(req,res) {
     let jsonResponse = {};
     try {
-
-        var substract = (Number)(req.body.data.param1) - (Number)(req.body.data.param2);
+        let substract = (Number)(req.body.data.param1) - (Number)(req.body.data.param2);
          jsonResponse = {
             "statusCode": 200,
-            "data": substract
+            "result": substract
         };
     } catch(err){
 
          jsonResponse = {
             "statusCode": 400,
-            "data": "Error"
+            "result": "Error"
         };
     }
     res.send(jsonResponse);
 };
 
 exports.multiply = function(req,res) {
+    let jsonResponse = {};
+    try {
+        let multiply = (Number)(req.body.data.param1) * (Number)(req.body.data.param2);
+        jsonResponse = {
+            "statusCode": 200,
+            "result": multiply
+        };
+    } catch(err){
 
-    var multiply = (Number)(req.body.data.param1) * (Number)(req.body.data.param2);
-    var jsonResponse = {
-        "statusCode": 200,
-        "data": multiply
-    };
+        jsonResponse = {
+            "statusCode": 400,
+            "result": "Error"
+        };
+    }
     res.send(jsonResponse);
 };
 
@@ -87,19 +98,28 @@ exports.divide = function(req,res) {
     //         result: "Not a Number"
     //     });
     // }
-    if(param2 === 0){
-        res.send({
-            statusCode: 400,
-            result: "Infinity: Cannot divide by zero"
-        });
+    let jsonResponse = {};
+    try {
+        if (param2 === 0) {
+            jsonResponse = {
+                "statusCode": 200,
+                "result": "Infinity: Cannot divide by zero"
+            };
+        }
+        else {
+            let divide = param1 / param2;
+            jsonResponse = {
+                "statusCode": 200,
+                "result": divide
+            };
+        }
+    } catch(err) {
+        jsonResponse = {
+            "statusCode": 400,
+            "result": "error"
+        };
     }
-    else{
-        var divide = param1 / param2;
-        res.send({
-            statusCode: 200,
-            result: divide
-        })
-    }
+    res.send(jsonResponse);
 };
 
 // module.exports = router;

@@ -87,7 +87,7 @@ class TestButton extends Component{
                     .then((res) => {
                         console.log("res",res.data)
                         if (res.status === 200) {
-                            this.setState({result: res.data.data},this.clearStateAfterAPICall);
+                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
                         } else if (res.status === 404) {
                             this.setState({display: 'Error'}, this.clearStateAfterAPICall);
                         }
@@ -96,7 +96,7 @@ class TestButton extends Component{
                 API.substraction(this.state.values)
                     .then((res) => {
                         if (res.status === 200) {
-                            this.setState({result: res.data.data},this.clearStateAfterAPICall);
+                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
                         } else if (res.status === 404) {
                             this.setState({display: 'Error'}, this.clearStateAfterAPICall);
                         }
@@ -105,7 +105,7 @@ class TestButton extends Component{
                 API.multiplication(this.state.values)
                     .then((res) => {
                         if (res.status === 200) {
-                            this.setState({result: res.data.data},this.clearStateAfterAPICall);
+                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
                         } else if (res.status === 404) {
                             this.setState({display: 'Error'}, this.clearStateAfterAPICall);
                         }
@@ -114,7 +114,7 @@ class TestButton extends Component{
                 API.division(this.state.values)
                     .then((res) => {
                         if (res.status === 200) {
-                            this.setState({result: res.data.data},this.clearStateAfterAPICall);
+                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
                         } else if (res.status === 404) {
                             this.setState({display: 'Error'}, this.clearStateAfterAPICall);
                         }

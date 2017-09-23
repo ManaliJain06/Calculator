@@ -21,7 +21,7 @@ export const addition = (payload) => {
 export const  substraction = (payload) => {
     console.log("payload", payload)
     return axios.post('http://localhost:3001/substract', {data: payload }
-)
+    )
     .then(function (response) {
         return response
     })
@@ -31,28 +31,28 @@ export const  substraction = (payload) => {
     });
 };
 
-export const multiplication = (payload) => fetch(`${api}/multiply`, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-}).then(res => {
-    return res;
-}).catch(error => {
-    console.log("This is error");
-    return error;
-});
+export const multiplication = (payload) => {
+    console.log("payload", payload)
+    return axios.post('http://localhost:3001/multiply', {data: payload }
+    )
+    .then(function (response) {
+        return response
+    })
+    .catch(function (error) {
+        console.log(error);
+        return error
+    });
+};
 
-export const division = (payload) => fetch(`${api}/divide`, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-}).then(res => {
-    return res;
-}).catch(error => {
-    console.log("This is error");
-    return error;
-});
+export const division = (payload) => {
+    console.log("payload", payload)
+    return axios.post('http://localhost:3001/divide', {data: payload }
+    )
+        .then(function (response) {
+            return response
+        })
+        .catch(function (error) {
+            console.log(error);
+            return error
+        });
+};
