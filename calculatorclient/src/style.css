@@ -31,19 +31,16 @@ form.calculator {
     font-weight: bold;
 }
 
-/*div.row{*/
-/*height: 40px;*/
-/*margin-top: 3%;*/
-/*margin-left: 1px;*/
-/*width: 225px;*/
-/*}*/
-
 div.fields {
     margin-top: 15px;
 }
 
-.btn-success, .btn-warning{
-    width: 115px;
+.btn-success{
+    width: 170px;
+}
+
+.btn-warning{
+    width: 110px;
 }
 
 button {

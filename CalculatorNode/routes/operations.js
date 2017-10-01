@@ -20,19 +20,6 @@ exports.calculatorPage = function (req, res) {
     });
 };
 
-// router.post('/add', function (req, res) {
-//     console.log("req", req.body)
-//     var sum = (Number)(req.body.data.param1) + (Number)(req.body.data.param2);
-//     console.log("Sum", sum);
-//     var jsonResponse = {
-//         "statusCode": 200,
-//         "data": sum
-//     };
-//     console.log("JSON", jsonResponse);
-//     res.send(jsonResponse);
-//     console.log("JSON 2", jsonResponse);
-// });
-
 exports.addition = function(req,res) {
     let jsonResponse = {};
     try {
@@ -103,7 +90,7 @@ exports.divide = function(req,res) {
         if (param2 === 0) {
             jsonResponse = {
                 "statusCode": 200,
-                "result": "Infinity: Cannot divide by zero"
+                "result": "Infinity:Can't divide by zero"
             };
         }
         else {

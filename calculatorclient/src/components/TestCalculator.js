@@ -117,7 +117,6 @@ class TestCalculator extends Component{
                     <div className="panel panel-info">
                         <div className="panel-heading text-center">Calculator</div>
                         <div className="panel-body">
-
                             <TestButton/>
                         </div>
                     </div>

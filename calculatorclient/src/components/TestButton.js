@@ -38,17 +38,7 @@ class TestButton extends Component{
     };
 
     storeParam = (event) => {
-
-        //this.inputString +=  ',' + event.target.id;
-        //var display = this.state.isOperationCalled? '' : this.state.display;
-        // this.x =  this.state.clearDisplay + event.target.id;
-        //if(!this.state.isOperationCalled) {
-
         //for displaying param2 after + and also if result is calculated then to clear the fields
-        // if(this.state.operationCount === 1){
-        //     alert("error Please clear all and enter operation again");
-        // }
-        //else{
             if(this.state.display === '+' || this.state.display === '-'
                 ||this.state.display === 'x' ||this.state.display === '÷' || this.state.isResultCalculated){
                 this.setState({display:  event.target.id});
@@ -56,13 +46,8 @@ class TestButton extends Component{
                 this.setState(
                     {
                         display:  this.state.display + event.target.id
-
-                        // clearDisplay: this.state.display
-
-                        //operation: this.state.operation + event.target.id
                     });
             }
-        //}
     };
 
     calculateResult = () => {
@@ -75,52 +60,44 @@ class TestButton extends Component{
                 }
             },this.callAPI);
         } else{
-            alert(" error Please clear all and enter operation again");
+            alert("Error: Invalid input, please clear all and enter operation again");
         }
     };
 
     callAPI = () => {
-        //for 7+.=
-        if(!(isNaN(this.state.values.param1) && isNaN(this.state.values.param2))){
+        //Handling of invalid input for 7+.= or .+7=
+        if(!(isNaN(this.state.values.param1)) && !(isNaN(this.state.values.param2))){
             if(this.state.operation === '+'){
                   API.addition(this.state.values)
                     .then((res) => {
-                        console.log("res",res.data)
-                        if (res.status === 200) {
-                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
-                        } else if (res.status === 404) {
-                            this.setState({display: 'Error'}, this.clearStateAfterAPICall);
-                        }
+                        this.setResponse(res);
                     });
             } else if(this.state.operation === '-'){
                 API.substraction(this.state.values)
                     .then((res) => {
-                        if (res.status === 200) {
-                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
-                        } else if (res.status === 404) {
-                            this.setState({display: 'Error'}, this.clearStateAfterAPICall);
-                        }
+                        this.setResponse(res);
                     });
             } else if(this.state.operation === 'x'){
                 API.multiplication(this.state.values)
                     .then((res) => {
-                        if (res.status === 200) {
-                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
-                        } else if (res.status === 404) {
-                            this.setState({display: 'Error'}, this.clearStateAfterAPICall);
-                        }
+                        this.setResponse(res);
                     });
             } else if(this.state.operation === '÷'){
                 API.division(this.state.values)
                     .then((res) => {
-                        if (res.status === 200) {
-                            this.setState({result: res.data.result},this.clearStateAfterAPICall);
-                        } else if (res.status === 404) {
-                            this.setState({display: 'Error'}, this.clearStateAfterAPICall);
-                        }
+                        this.setResponse(res);
                     });
             }
+        } else{
+            alert("Error: Invalid input, please clear all and enter operation again");
+        }
+    };
 
+    setResponse = (res) => {
+        if (res.status === 200) {
+            this.setState({result: res.data.result},this.clearStateAfterAPICall);
+        } else if (res.status === 404) {
+            this.setState({display: 'Error'}, this.clearStateAfterAPICall);
         }
     };
 
@@ -137,7 +114,7 @@ class TestButton extends Component{
     };
 
     myCallback = (displaySign) => {
-        // for +7= and  7+8+=
+        // Handling of invalid input for +7= and  7+8+=
         if(this.state.display !== '' && this.state.operationCount === 0){
             this.setState({
                 values: {
@@ -152,7 +129,7 @@ class TestButton extends Component{
                 });
             });
         } else{
-            alert("error:Invalid input. Please clear all and enter operation again");
+            alert("Error: Invalid input, please clear all and enter operation again");
         }
     };
 
@@ -171,7 +148,7 @@ class TestButton extends Component{
                 <div className="row fields">
                     <button id="allClear" type="button" className="btn btn-success"
                             onClick={(event) => this.clearAll()}>AC</button>
-                    <button id="clear" type="button" className="btn btn-primary">CE</button>
+                    {/*<button id="clear" type="button" className="btn btn-primary">CE</button>*/}
                     <TestOperation sign = '÷' displaySign = {this.myCallback}/>
                 </div>
 
