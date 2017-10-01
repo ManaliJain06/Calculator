@@ -114,6 +114,8 @@ class TestButton extends Component{
     };
 
     myCallback = (displaySign) => {
+        // do a callback in setState to make sure that setState is rendered to DOM and then perform
+        // any operation to get the state using this.state
         // Handling of invalid input for +7= and  7+8+=
         if(this.state.display !== '' && this.state.operationCount === 0){
             this.setState({
