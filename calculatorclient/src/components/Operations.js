@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 
 
-class TestOperation extends Component{
+class Operation extends Component{
 
     storeOperation = (event) => {
         var display = event.target.id;
@@ -19,4 +19,4 @@ class TestOperation extends Component{
         );
     }
 }
-export default TestOperation;
+export default Operation;

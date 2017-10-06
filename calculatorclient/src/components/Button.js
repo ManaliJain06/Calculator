@@ -3,9 +3,9 @@
  */
 import React, {Component} from 'react';
 import * as API from '../api/calculatorAPI';
-import TestOperation from './TestOperations';
+import Operation from './Operations';
 
-class TestButton extends Component{
+class Button extends Component{
 
     constructor(props){
         super(props);
@@ -151,7 +151,7 @@ class TestButton extends Component{
                     <button id="allClear" type="button" className="btn btn-success"
                             onClick={(event) => this.clearAll()}>AC</button>
                     {/*<button id="clear" type="button" className="btn btn-primary">CE</button>*/}
-                    <TestOperation sign = '÷' displaySign = {this.myCallback}/>
+                    <Operation sign = '÷' displaySign = {this.myCallback}/>
                 </div>
 
                 <div className="row">
@@ -161,7 +161,7 @@ class TestButton extends Component{
                             onClick={(event) => this.storeParam(event)}>8</button>
                     <button id="9" type="button" className="btn btn-info"
                             onClick={(event) => this.storeParam(event)}>9</button>
-                    <TestOperation sign = 'x' displaySign = {this.myCallback}/>
+                    <Operation sign = 'x' displaySign = {this.myCallback}/>
                 </div>
 
                 <div className="row">
@@ -171,7 +171,7 @@ class TestButton extends Component{
                             onClick={(event) => this.storeParam(event)}>5</button>
                     <button id="6" type="button" className="btn btn-info"
                             onClick={(event) => this.storeParam(event)}>6</button>
-                    <TestOperation sign = '-' displaySign = {this.myCallback}/>
+                    <Operation sign = '-' displaySign = {this.myCallback}/>
                 </div>
 
                 <div className="row">
@@ -181,7 +181,7 @@ class TestButton extends Component{
                             onClick={(event) => this.storeParam(event)}>2</button>
                     <button id="3" type="button" className="btn btn-info"
                             onClick={(event) => this.storeParam(event)}>3</button>
-                    <TestOperation sign = '+' displaySign = {this.myCallback}/>
+                    <Operation sign = '+' displaySign = {this.myCallback}/>
                 </div>
 
 
@@ -199,4 +199,4 @@ class TestButton extends Component{
     }
 }
 
-export default TestButton;
+export default Button;
