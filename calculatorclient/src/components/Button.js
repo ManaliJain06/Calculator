@@ -96,7 +96,7 @@ class Button extends Component{
     setResponse = (res) => {
         if (res.status === 200) {
             this.setState({result: res.data.result},this.clearStateAfterAPICall);
-        } else if (res.status === 404) {
+        } else if (res.status === 400) {
             this.setState({display: 'Error'}, this.clearStateAfterAPICall);
         }
     };

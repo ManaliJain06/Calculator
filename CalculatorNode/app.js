@@ -32,6 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post("/add", operations.addition);
 app.post("/substract",operations.substract);
 app.post("/multiply",operations.multiply);
+// app.post("/divide",function (req,res) {
+//     console.log(req.body.param1);
+//     console.log(req.body.param2);
+//     console.log("divide")
+// });
 app.post("/divide",operations.divide);
 
 // catch 404 and forward to error handler

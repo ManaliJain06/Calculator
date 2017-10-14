@@ -7,7 +7,7 @@ const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:3001'
 
 export const addition = (payload) => {
     console.log("payload", payload)
-    return axios.post('http://localhost:3001/add', {data: payload }
+    return axios.post('http://localhost:3001/add', payload
     )
     .then(function (response) {
         return response
@@ -20,7 +20,7 @@ export const addition = (payload) => {
 
 export const  substraction = (payload) => {
     console.log("payload", payload)
-    return axios.post('http://localhost:3001/substract', {data: payload }
+    return axios.post('http://localhost:3001/substract', payload
     )
     .then(function (response) {
         return response
@@ -33,7 +33,7 @@ export const  substraction = (payload) => {
 
 export const multiplication = (payload) => {
     console.log("payload", payload)
-    return axios.post('http://localhost:3001/multiply', {data: payload }
+    return axios.post('http://localhost:3001/multiply', payload
     )
     .then(function (response) {
         return response
@@ -46,7 +46,7 @@ export const multiplication = (payload) => {
 
 export const division = (payload) => {
     console.log("payload", payload)
-    return axios.post('http://localhost:3001/divide', {data: payload }
+    return axios.post('http://localhost:3001/divide', payload
     )
         .then(function (response) {
             return response

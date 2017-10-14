@@ -4,12 +4,15 @@
 
 exports.addition = function(req,res) {
     let jsonResponse = {};
+    console.log("add",req.body.param1);
+    console.log("add",req.body.param2);
     try {
-        let sum = (Number)(req.body.data.param1) + (Number)(req.body.data.param2);
+        let sum = (Number)(req.body.param1) + (Number)(req.body.param2);
          jsonResponse = {
             "statusCode": 200,
             "result": sum
         };
+        console.log("result",sum);
     }  catch(err){
 
         jsonResponse = {
@@ -21,13 +24,16 @@ exports.addition = function(req,res) {
 };
 
 exports.substract = function(req,res) {
+    console.log("sub",req.body.param1);
+    console.log("sub",req.body.param2);
     let jsonResponse = {};
     try {
-        let substract = (Number)(req.body.data.param1) - (Number)(req.body.data.param2);
+        let substract = (Number)(req.body.param1) - (Number)(req.body.param2);
          jsonResponse = {
             "statusCode": 200,
             "result": substract
         };
+        console.log("result",substract);
     } catch(err){
 
          jsonResponse = {
@@ -39,13 +45,16 @@ exports.substract = function(req,res) {
 };
 
 exports.multiply = function(req,res) {
+    console.log("mul",req.body.param1);
+    console.log("mul",req.body.param2);
     let jsonResponse = {};
     try {
-        let multiply = (Number)(req.body.data.param1) * (Number)(req.body.data.param2);
+        let multiply = req.body.param1 * req.body.param2;
         jsonResponse = {
             "statusCode": 200,
             "result": multiply
         };
+        console.log("result",multiply);
     } catch(err){
 
         jsonResponse = {
@@ -57,9 +66,12 @@ exports.multiply = function(req,res) {
 };
 
 exports.divide = function(req,res) {
-    var param1 = (Number)(req.body.data.param1);
-    var param2 = (Number)(req.body.data.param2);
 
+    console.log("div",req.body.param1);
+    console.log("div",req.body.param2);
+    let param1 = (Number)(req.body.param1);
+    let param2 = (Number)(req.body.param2);
+    let divide = 0;
     let jsonResponse = {};
     try {
         if (param2 === 0) {
@@ -69,12 +81,13 @@ exports.divide = function(req,res) {
             };
         }
         else {
-            let divide = param1 / param2;
+            divide = param1 / param2;
             jsonResponse = {
                 "statusCode": 200,
                 "result": divide
             };
         }
+        console.log("result",divide);
     } catch(err) {
         jsonResponse = {
             "statusCode": 400,
