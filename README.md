@@ -9,7 +9,7 @@ This repository is for a Calculator application using react js as front end and 
 Client setup-
 1) Client module is calculatorclient
 2) Resolve dependencies in package.json
-3) Lunch the application by npm start
+3) Launch the application by npm start
 4) Client port is 3000
 5) Hit the URL- localhost:3000
 
